@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 const Stack = createStackNavigator();
 
 import Login from './pages/Login';
+import DetailsPost from './pages/Dashboard/DetailsPost';
 import DashboardRoutes from './pages/Dashboard/dashboard.routes';
 
 function StackScreen() {
@@ -19,6 +20,7 @@ export default function Routes() {
         <Stack.Navigator>
             <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
             <Stack.Screen name="Dashboard" component={DashboardRoutes} options={{ headerShown: false }} />
+            <Stack.Screen name="DetailsPost" component={DetailsPost} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }

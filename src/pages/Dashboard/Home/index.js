@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,TouchableOpacity } from 'react-native';
 import { Feather, Ionicons } from "@expo/vector-icons";
 
 import {
@@ -32,8 +32,6 @@ import imgTeste from './../../../assets/justin-aikin-627026-unsplash.png';
 import logo from './../../../assets/doglife.png';
 import ossoOrange from './../../../assets/osso-orange.png';
 import patas from './../../../assets/patas.png';
-
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const post = [
     { img: 'https://images.unsplash.com/photo-1590986482090-b4b48b90fd07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
@@ -72,14 +70,14 @@ export default function Home() {
                                 </CardTitle>
                             </CardAvatar>
                             <Icone>
-                                <TouchableWithoutFeedback onPress={() => { }}>
+                                <TouchableOpacity onPress={() => { }}>
                                     <CardSharedButton
                                         colors={['#F92B7F', '#F58524']}
                                         start={[0.8, 1]}
                                     >
                                         <Ionicons name="ios-share-alt" size={24} color="#413E3D" />
                                     </CardSharedButton>
-                                </TouchableWithoutFeedback>
+                                </TouchableOpacity>
                             </Icone>
                         </CardHeader>
 
