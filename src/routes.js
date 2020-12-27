@@ -4,6 +4,7 @@ const Stack = createStackNavigator();
 
 import Login from './pages/Login';
 import DetailsPost from './pages/Dashboard/DetailsPost';
+import Profile from './pages/Dashboard/Profile';
 import DashboardRoutes from './pages/Dashboard/dashboard.routes';
 import PostCamera from './components/PostCamera';
 
@@ -23,6 +24,7 @@ export default function Routes() {
             <Stack.Screen name="Dashboard" component={DashboardRoutes} options={{ headerShown: false }} />
             <Stack.Screen name="Camera" component={PostCamera} options={{ headerShown: false }} />
             <Stack.Screen name="DetailsPost" component={DetailsPost} options={{ headerShown: false }} />
+            <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
         </Stack.Navigator>
     );
 }

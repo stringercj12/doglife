@@ -7,7 +7,6 @@ export const Container = styled.SafeAreaView`
   padding-top: ${Constants.statusBarHeight}px;
 `;
 
-
 export const Header = styled.View`
   height: 66px;
   padding: 0 15px;
@@ -39,7 +38,7 @@ export const Img = styled.Image`
 
 export const Scroll = styled.ScrollView`
   margin-top: -50px;
-  background-color: rgba(255,255,255,.6);
+  /* background-color: rgba(255,255,255,.6); */
 `;
 
 export const Post = styled.View`
@@ -64,29 +63,25 @@ export const PostInfo = styled.Text`
 
 export const PostActions = styled.View`
   flex-direction: row;
-  width: 100%;
-  align-items: center;
   justify-content: space-between;
-  background-color: rgba(255,255,255,.6);
+  background-color: rgba(59,59,59,.1);
+  height: 75px;
 `;
 
 export const PostAction = styled.TouchableOpacity`
   align-items: center;
   justify-content: space-between;
-`;
-
-export const GradientLeft = styled(LinearGradient)`
   width: 65px;
   height: 65px;
-  border-top-right-radius: 45px;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  z-index: 31;
 `;
 
-export const GradientRight = styled(LinearGradient)`
+export const Gradient = styled(LinearGradient)`
   width: 65px;
   height: 65px;
-  border-top-left-radius: 45px;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  bottom: 0;
 `;

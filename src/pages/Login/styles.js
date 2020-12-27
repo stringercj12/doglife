@@ -24,7 +24,7 @@ export const Logo = styled.Image`
 
 export const MiniLogo = styled.Image`
     width: 150px;
-    max-width: 100%
+    max-width: 100%;
     height: 45px;
     align-self: center;
     margin-top: -70px;
@@ -47,7 +47,7 @@ export const Actions = styled.View`
 `;
 
 export const Action = styled(LinearGradient)`
-    width: 100%
+    width: 100%;
     height: 45px;
     padding: 10px;
     border-radius: 5px;
@@ -58,7 +58,7 @@ export const Action = styled(LinearGradient)`
 `;
 
 export const ActionFacebook = styled.TouchableOpacity.attrs(() => { })`
-    width: 100%
+    width: 100%;
     height: 45px;
     padding: 10px;
     border-radius: 5px;

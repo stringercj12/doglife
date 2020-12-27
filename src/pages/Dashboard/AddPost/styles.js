@@ -113,6 +113,7 @@ export const ButtonPublishDisabledIcone = styled.Image`
     width: 27px;
     height: 27px;
 `;
+
 export const ButtonPublishGradient = styled(LinearGradient)`
     margin: 0 auto;
     height: 50px;
