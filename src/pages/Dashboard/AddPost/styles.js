@@ -58,12 +58,7 @@ export const UploadText = styled.Text`
 export const UploadLogo = styled.Image``;
 
 export const PreviewImage = styled.ImageBackground`
-    height: 230px;
-    background-color: rgba(247,83,86,0.1);
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    position: relative;
+    height: 250px;
 `;
 
 export const PreviewClose = styled.TouchableOpacity`

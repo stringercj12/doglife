@@ -3,14 +3,18 @@ import { Feather, FontAwesome, AntDesign, Ionicons, MaterialCommunityIcons } fro
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 
-import { Container } from './styles';
-import { View } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Action, Actions, Container } from './styles';
+import { Image, Modal, Text, View } from 'react-native';
+// import EventEmitter from 'events';
+
 
 const PostCamera = ({ children }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
+  const [open, setOpen] = useState(false);
+  const [photoSelected, setPhotoSelected] = useState('');
   const cameraRef = useRef(null);
+  // const newEvent = new EventEmitter();
 
   const handleCameraType = () => {
 
@@ -23,66 +27,61 @@ const PostCamera = ({ children }) => {
 
   const takePicture = async () => {
     if (cameraRef) {
-      let resposta = await cameraRef.current?.takePictureAsync();
-      console.log(resposta);
+      let data = await cameraRef.current?.takePictureAsync();
+      setPhotoSelected(data.uri);
+      setOpen(true);
+      console.log(data);
     }
+  }
+
+  const newPhoto = async () => {
+    setPhotoSelected(null);
+    setOpen(false);
   }
 
   return (
     <Container>
-      <Camera ref={cameraRef} style={{ flex: 1, position: 'absolute', left: 0, right: 0, top: 0, bottom: 0, zIndex: 99999 }} type={cameraType}>
-        <TouchableOpacity
-          style={{
-            alignSelf: 'flex-end',
-            alignItems: 'center',
-            backgroundColor: 'transparent',
+      <Camera ref={cameraRef} style={{ flex: 1, zIndex: 2 }} type={cameraType}>
 
-          }}
-          onPress={e => setHasPermission(false)}
-        >
-          <Feather
-            name="x"
-            style={{ color: "#fff", fontSize: 40, marginTop: 20 }}
-          />
-        </TouchableOpacity>
-        <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: 'flex-end', margin: 20 }}>
-          <TouchableOpacity
-            style={{
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-              backgroundColor: 'transparent',
-            }}>
-            <Ionicons
-              name="ios-photos"
-              style={{ color: "#fff", fontSize: 40 }}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-              backgroundColor: 'transparent',
-            }}
+        <Actions>
+
+          {children}
+
+          <Action
             onPress={takePicture}>
-            <FontAwesome
-              name="camera"
-              style={{ color: "#fff", fontSize: 40 }}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              alignSelf: 'flex-end',
-              alignItems: 'center',
-              backgroundColor: 'transparent',
-            }}
+            <MaterialCommunityIcons name="camera-iris" size={40} color="#ffffff" />
+          </Action>
+          <Action
             onPress={handleCameraType}>
-            <MaterialCommunityIcons
-              name="camera-switch"
-              style={{ color: "#fff", fontSize: 40 }}
-            />
-          </TouchableOpacity>
-        </View>
+            <Ionicons name="md-reverse-camera" size={32} color="#ffffff" />
+          </Action>
+        </Actions>
       </Camera>
+      <Modal
+        animationType="slide"
+        // transparent={true}
+        visible={open}
+      >
+
+        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', margin: 20 }}>
+
+          <Image source={{ uri: photoSelected }} style={{ width: '100%', height: 400, borderRadius: 5, marginBottom: 20 }} />
+
+          <Actions style={{ flex: 0 }}>
+            <Action
+              onPress={newPhoto}>
+              <MaterialCommunityIcons name="camera-plus" size={40} color="#f58524" />
+              <Text>Tirar nova foto</Text>
+            </Action>
+            <Action
+              onPress={() => { }}>
+              <Feather name="save" size={40} color="#f58524" />
+              <Text>Usar essa foto</Text>
+            </Action>
+          </Actions>
+        </View>
+
+      </Modal>
     </Container>
   );
 };
