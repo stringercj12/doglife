@@ -41,7 +41,7 @@ export default function News() {
 
             <Scroll>
                 {post.map((item, i) => (
-                    <Card onPress={navigateToPost}>
+                    <Card key={i} onPress={navigateToPost}>
                         <CardBody>
                             <CardImg source={{ uri: item.img }} />
                         </CardBody>

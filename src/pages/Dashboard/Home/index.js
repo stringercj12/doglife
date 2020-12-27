@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Feather, Ionicons } from "@expo/vector-icons";
 
 import {
@@ -34,11 +34,11 @@ import ossoOrange from './../../../assets/osso-orange.png';
 import patas from './../../../assets/patas.png';
 
 const post = [
-    { img: 'https://images.unsplash.com/photo-1590986482090-b4b48b90fd07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
-    { img: 'https://images.unsplash.com/photo-1584824388173-26f82e9a7deb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { img: 'https://images.unsplash.com/photo-1587169544795-974aeedce949?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { img: 'https://images.unsplash.com/photo-1559440167-38d7f72c1022?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
-    { img: 'https://images.unsplash.com/photo-1584824388176-fee79746a11b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { avatar: avatar, img: 'https://images.unsplash.com/photo-1590986482090-b4b48b90fd07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
+    { avatar: avatar, img: 'https://images.unsplash.com/photo-1584824388173-26f82e9a7deb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { avatar: avatar, img: 'https://images.unsplash.com/photo-1587169544795-974aeedce949?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { avatar: avatar, img: 'https://images.unsplash.com/photo-1559440167-38d7f72c1022?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
+    { avatar: avatar, img: 'https://images.unsplash.com/photo-1584824388176-fee79746a11b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' },
 ];
 
 
@@ -55,27 +55,24 @@ export default function Home() {
             </Header>
 
             <Scroll>
-                {post.map(item => (
-                    <Card>
+                {post.map((item, i) => (
+                    <Card key={i}>
                         <CardHeader>
                             <CardAvatar>
-                                <Avatar source={avatar} />
+                                <Avatar source={item.avatar} />
                                 <CardTitle>
                                     <Name>
                                         Baxter Johnson
-                            </Name>
+                                    </Name>
                                     <Data>
                                         5:30PM
-                            </Data>
+                                    </Data>
                                 </CardTitle>
                             </CardAvatar>
                             <Icone>
                                 <TouchableOpacity onPress={() => { }}>
-                                    <CardSharedButton
-                                        colors={['#F92B7F', '#F58524']}
-                                        start={[0.8, 1]}
-                                    >
-                                        <Ionicons name="ios-share-alt" size={24} color="#413E3D" />
+                                    <CardSharedButton>
+                                        <Ionicons name="ios-share-alt" size={24} color='#232323' />
                                     </CardSharedButton>
                                 </TouchableOpacity>
                             </Icone>

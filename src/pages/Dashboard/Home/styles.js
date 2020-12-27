@@ -80,13 +80,14 @@ export const Icone = styled.View`
 `;
 
 
-export const CardSharedButton = styled(LinearGradient)`
+export const CardSharedButton = styled.View`
   width: 32px;
   height: 32px;
   border-radius: 16px;
   align-items: center;
   justify-content: center;
-  opacity: .8;
+  opacity: .6;
+  background-color: #F75356;
 `;
 
 
