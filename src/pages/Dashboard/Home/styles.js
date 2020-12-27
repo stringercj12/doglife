@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  padding-top: ${Constants.statusBarHeight};
+  padding-top: ${Constants.statusBarHeight}px;
 `;
 
 
@@ -125,7 +125,6 @@ export const CardAction = styled.TouchableOpacity`
 
 export const IconImg = styled.Image`
   margin-right: 10px;
-  color: #E25E31;
 `;
 
 export const CardActionText = styled.Text`

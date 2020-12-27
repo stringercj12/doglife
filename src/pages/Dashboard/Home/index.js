@@ -72,7 +72,7 @@ export default function Home() {
                             <Icone>
                                 <TouchableOpacity onPress={() => { }}>
                                     <CardSharedButton>
-                                        <Ionicons name="ios-share-alt" size={24} color='#232323' />
+                                        <Ionicons name="ios-share-alt" size={24} color="#232323" />
                                     </CardSharedButton>
                                 </TouchableOpacity>
                             </Icone>
