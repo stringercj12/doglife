@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { LinearGradient } from "expo-linear-gradient";
 import Constants from 'expo-constants';
 
-export const Container = styled.ScrollView`
+export const Container = styled.SafeAreaView`
   flex: 1;
   padding-top: ${Constants.statusBarHeight}px;
 `;
@@ -13,7 +13,7 @@ export const Header = styled.View`
   padding: 0 15px;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background-color: rgba(255,255,255,.8);
 `;
 
@@ -22,6 +22,10 @@ export const HeaderText = styled.Text`
     font-size: 22px;
     font-weight: bold;
 `;
+
+export const Back = styled.TouchableOpacity`
+`;
+
 
 export const Avatar = styled.Image`
   width: 46px;
@@ -36,9 +40,8 @@ export const Logo = styled.Image`
 `;
 
 
-export const Content = styled.View`
+export const Content = styled.ScrollView`
     /* flex: 1; */
-    justify-content: space-around;
 `;
 
 export const Upload = styled.TouchableOpacity`
@@ -76,7 +79,6 @@ export const PreviewClose = styled.TouchableOpacity`
 export const Form = styled.View`
     margin-top: 10px;
     padding: 0px 15px;
-    flex: 1;
 `;
 
 export const Label = styled.Text`
@@ -125,7 +127,7 @@ export const ButtonPublishGradient = styled(LinearGradient)`
     width: 80%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     /* background-color: rgba(207,207,207,0.21); */
     border-radius: 5px;
     margin-top: 20px;

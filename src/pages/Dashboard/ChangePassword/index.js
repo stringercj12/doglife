@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
-
-import { Container, Header, HeaderText, ContainerForm, Input, Back, ButtonGradient, ButtonText } from "./styles";
-import { useNavigation } from '@react-navigation/native';
+import { Text, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+
+import { Back, ButtonGradient, ButtonText, Container, ContainerForm, Header, HeaderText, Input } from './styles';
+import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Profile = () => {
-    const [updated, setUpdated] = useState(false);
+const ChangePassword = () => {
     const navigation = useNavigation();
+    const [updated, setUpdated] = useState(false);
 
-
-    function navigateToBack() {
-        navigation.goBack();
-    }
-
+    
     function handleUpdate() {
         setUpdated(true);
 
@@ -26,18 +22,17 @@ const Profile = () => {
     return (
         <Container>
             <Header>
-                <Back onPress={navigateToBack}>
+                <Back onPress={() => navigation.goBack()}>
                     <Feather name="arrow-left" size={30} color="#3B3B3B" />
                 </Back>
                 <HeaderText>Edit Profile</HeaderText>
+                <View />
             </Header>
 
-
             <ContainerForm>
-                <Input placeholder="Name" />
-                <Input placeholder="Email" />
-                <Input placeholder="Phone Number" />
-                <Input placeholder="Senha" />
+                <Input placeholder="Current Password" />
+                <Input placeholder="New Password" />
+                <Input placeholder="Re-Enter Password" />
             </ContainerForm>
 
             <TouchableOpacity onPress={updated ? () => { } : handleUpdate}>
@@ -51,4 +46,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default ChangePassword;

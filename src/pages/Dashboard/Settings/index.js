@@ -17,15 +17,15 @@ export default function Settings() {
             </Title>
 
             <List>
-                <ListItem onPress={() => navigation.navigate('Profile')}>
+                <ListItem onPress={() => navigation.navigate('EditProfile')}>
                     <ListItemText>Edit Profile</ListItemText>
                     <Feather name="chevron-right" size={22} color="#3B3B3B" />
                 </ListItem>
-                <ListItem>
+                <ListItem onPress={() => navigation.navigate('ChangePassword')}>
                     <ListItemText>Change Password</ListItemText>
                     <Feather name="chevron-right" size={22} color="#3B3B3B" />
                 </ListItem>
-                <ListItem>
+                <ListItem onPress={() => navigation.navigate('Language')}>
                     <ListItemText>Language</ListItemText>
                     <Feather name="chevron-right" size={22} color="#3B3B3B" />
                 </ListItem>

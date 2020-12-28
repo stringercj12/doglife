@@ -16,6 +16,7 @@ import {
     PostAction,
     Gradient,
 } from './styles';
+import { Alert } from 'react-native';
 
 export default function DetailsPost() {
     const navigation = useNavigation();
@@ -23,6 +24,26 @@ export default function DetailsPost() {
 
     function navigateToBack() {
         navigation.goBack();
+    }
+
+    function relatarPostagem() {
+        Alert.alert(
+            '',
+            'Are you sure you want to report this article?',
+            [
+                {
+                    text: 'No',
+                    onPress: () => console.log("No Pressed"),
+                    style: 'cancel'
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => console.log("Yes Pressed"),
+                    style: 'cancel'
+                }
+            ],
+            { cancelable: false }
+        );
     }
 
     return (
@@ -54,13 +75,28 @@ export default function DetailsPost() {
                 </Post>
             </Scroll>
 
-            <PostAction orientation="left" style={{ borderTopRightRadius: 45, position: 'absolute', bottom: 0, left: 0 }}>
+            <PostAction
+                onPress={relatarPostagem}
+                style={{
+                    borderTopRightRadius: 45,
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0
+                }}
+            >
                 <Gradient colors={['#F92B7F', '#F58524']} start={[0.8, 1]}>
                     <Feather name="x" size={34} color="#fff" />
                 </Gradient>
             </PostAction>
 
-            <PostAction orientation="right" style={{ borderTopLeftRadius: 45, position: 'absolute', bottom: 0, right: 0 }}>
+            <PostAction
+                style={{
+                    borderTopLeftRadius: 45,
+                    position: 'absolute',
+                    bottom: 0,
+                    right: 0
+                }}
+            >
                 <Gradient colors={['#F92B7F', '#F58524']} start={[0.8, 1]}>
                     <Feather name="chevron-right" size={34} color="#fff" />
                 </Gradient>

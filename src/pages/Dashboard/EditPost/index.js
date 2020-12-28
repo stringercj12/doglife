@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Modal, Platform, Text } from 'react-native';
 import { Feather, FontAwesome, AntDesign, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { Container, Header, HeaderText, Upload, UploadLogo, UploadText, Form, Label, Input, ButtonPublishDisabled, ButtonPublishDisabledIcone, ButtonPublishDisabledText, ButtonPublishIcone, ButtonPublishText, Content, PreviewClose, PreviewImage, ModalUpload, ModalCard, CameraButton, GaleriaButton, ModalCardClosed, ButtonPublishGradient, ButtonPublishIconeView, } from "./styles";
+import { Container, Header, HeaderText,Back, Upload, UploadLogo, UploadText, Form, Input, ButtonPublishDisabled, ButtonPublishDisabledIcone, ButtonPublishDisabledText, ButtonPublishIcone, ButtonPublishText, Content, PreviewClose, PreviewImage, ModalUpload, ModalCard, CameraButton, GaleriaButton, ModalCardClosed, ButtonPublishGradient, ButtonPublishIconeView, Label, } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
@@ -17,14 +17,14 @@ import PostCamera from "../../../components/PostCamera";
 import { useNavigation } from "@react-navigation/native";
 import { AppLoading } from "expo";
 
-export default function AddPost() {
-    const [imageUpload, setImageUpload] = useState(false);
+const EditPost = () => {
+    const [imageUpload, setImageUpload] = useState(true);
     const [modalUpload, setModalUpload] = useState(false);
     const [hasPermission, setHasPermission] = useState(null);
     const [cameraType, setCameraType] = useState(Camera.Constants.Type.back);
     const navigation = useNavigation();
     const [imagem, setImagem] = useState('https://images.unsplash.com/photo-1609038816412-f9d88658ecf1?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0OXx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-    const [description, setDescription] = useState('');
+    const [description, setDescription] = useState(`Lorem Ipsum is simply dummy text of the printing and  typesetting industry. Lorem  Ipsum has been the industry's standard dummy text ever  since the 1500s, when an  unknown printer took a galley of type and  scrambled it to make a type specimen book.`);
     const [isValid, setIsValid] = useState('');
     const [showModal, setShowModal] = useState(false);
     const [publish, setPublish] = useState(false);
@@ -48,6 +48,8 @@ export default function AddPost() {
             setPublish(false)
         }, 2000)
     }
+
+
 
     const uploadImagem = async (uri) => {
         const response = await fetch(uri);
@@ -91,7 +93,10 @@ export default function AddPost() {
         <>
             <Container>
                 <Header>
-                    <HeaderText>New Post</HeaderText>
+                    <Back onPress={() => navigation.goBack()}>
+                        <Feather name="arrow-left" size={30} color="#3B3B3B" />
+                    </Back>
+                    <HeaderText>Edit Post</HeaderText>
                 </Header>
                 <Content>
                     {imageUpload ? (
@@ -109,16 +114,13 @@ export default function AddPost() {
 
                     <Form>
                         <Label>Sobre a imagem</Label>
-                        <Input placeholder="Snap something here..." multiline onChangeText={text => setDescription(text)} />
+                        <Input placeholder="Snap something here..." multiline value={description} onChangeText={text => setDescription(text)} />
                     </Form>
                     <TouchableOpacity onPress={publish ? () => { } : handlePublish}>
                         <ButtonPublishGradient colors={['#F92B7F', '#F58524']} start={[0.8, 1]} >
                             <ButtonPublishText>
-                                {publish ? 'Carregando...' : 'Publish'}
+                                {publish ? 'Carregando...' : 'Update'}
                             </ButtonPublishText>
-                            <ButtonPublishIconeView>
-                                <ButtonPublishIcone source={DogWhite} />
-                            </ButtonPublishIconeView>
                         </ButtonPublishGradient>
                     </TouchableOpacity>
                 </Content>
@@ -163,3 +165,5 @@ export default function AddPost() {
         </>
     );
 }
+
+export default EditPost;

@@ -46,7 +46,7 @@ export const ButtonGradient = styled(LinearGradient)`
     width: 80%;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     /* background-color: rgba(207,207,207,0.21); */
     border-radius: 5px;
     margin-top: 20px;

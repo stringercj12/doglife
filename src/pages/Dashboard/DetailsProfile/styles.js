@@ -5,8 +5,8 @@ import Constants from 'expo-constants';
 export const Container = styled.SafeAreaView`
   flex: 1;
   padding-top: ${Constants.statusBarHeight}px;
+  background-color: #ffffff;
 `;
-
 
 export const Header = styled.View`
   height: 66px;
@@ -17,24 +17,107 @@ export const Header = styled.View`
   background-color: rgba(255,255,255,.8);
 `;
 
+export const HeaderText = styled.Text`
+  color: #3b3b3b;
+  font-size: 22px;
+  font-weight: bold;
+`;
+
+export const Back = styled.TouchableOpacity`
+`;
+
+export const ContainerForm = styled.View`
+    padding: 20px;
+`;
+
+export const Input = styled.TextInput`
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    padding-left: 10px;
+    margin-top: 15px;
+    border-bottom-width: 1px;
+    border-style:  solid;
+    border-color: #707070;
+`;
+
+export const ButtonGradient = styled(LinearGradient)`
+    margin: 0 auto;
+    height: 50px;
+    width: 80%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: rgba(207,207,207,0.21); */
+    border-radius: 5px;
+    margin-top: 20px;
+    padding-left: 15px;
+`;
+
+export const ButtonText = styled.Text`
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+`;
+
+export const Scroll = styled.ScrollView`
+`;
+
+export const BoxImage = styled.View`
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  border-bottom-width: 0.5px;
+  border-color: #ccc;
+  border-style: solid;
+`;
+
+export const ProfileImage = styled.Image`
+  width: 148px;
+  height: 148px;
+  border-radius: 74px;
+`;
+
+export const User  = styled.View`
+  padding: 20px 0px;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Username  = styled.Text`
+  font-size: 18px;
+  color: #3B3B3B;
+  font-weight: bold;
+`;
+
+export const Useremail  = styled.Text`
+  font-size: 14px;
+  color: #3B3B3B;
+`;
+
+export const ProfileButtonEdit = styled.TouchableOpacity`
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid #ffffff;
+  position: absolute;
+  bottom: -20px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ProfileGradientEdit = styled(LinearGradient)`
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Avatar = styled.Image`
   width: 46px;
   height: 46px;
   border-radius: 23px;
-`;
-
-export const Logo = styled.Image`
-  width: 116px;
-  max-width: 100%;
-  height: 46px;
-`;
-
-export const Search = styled.TouchableOpacity`
-
-`;
-
-export const Scroll = styled.ScrollView`
-
 `;
 
 export const Card = styled.View`
@@ -51,7 +134,8 @@ export const CardHeader = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 15px;
+  padding: 0px 10px;
+  width: 100%;
 `;
 
 export const CardAvatar = styled.View`
@@ -72,11 +156,9 @@ export const Data = styled.Text`
 `;
 
 export const Icone = styled.View`
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  flex-direction: row;
 `;
 
 
@@ -87,6 +169,7 @@ export const CardSharedButton = styled.View`
   align-items: center;
   justify-content: center;
   background-color: rgba(247,83,86,.2);
+  margin-left: 15px;
 `;
 
 

@@ -6,7 +6,8 @@ export const Button = styled(LinearGradient)`
   height: 60px;
   border-radius: 30px;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 10px;
 `;
 
 

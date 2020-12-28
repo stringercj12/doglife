@@ -1,15 +1,10 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, Image } from 'react-native';
-import { Feather, Ionicons } from "@expo/vector-icons";
+import React, { useState } from 'react';
+import { Image, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Feather, Ionicons } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import {
-    Container,
-    Header,
-    Avatar,
-    Logo,
-    Search,
-    Scroll,
-    Card,
+import { Back, BoxImage, Container, Header, HeaderText, ProfileImage, Scroll, User, Useremail, Username,Avatar, Card,
     CardHeader,
     CardAvatar,
     CardTitle,
@@ -24,16 +19,13 @@ import {
     IconImg,
     CardActionText,
     CardInfo,
-    CardImg,
-} from './styles';
-
-import avatar from './../../../assets/justin-aikin-627026-unsplash.png';
-import imgTeste from './../../../assets/justin-aikin-627026-unsplash.png';
-import logo from './../../../assets/doglife.png';
-import sharedIcon from './../../../assets/shared-icon.png';
-import ossoOrange from './../../../assets/osso-orange.png';
-import patas from './../../../assets/patas.png';
-import { useNavigation } from '@react-navigation/native';
+    CardImg,} from './styles';
+    import avatar from './../../../assets/justin-aikin-627026-unsplash.png';
+    import sharedIcon from './../../../assets/shared-icon.png';
+    import editIcon from './../../../assets/edit-icon.png';
+    import trashIcon from './../../../assets/trash-icon.png';
+    import ossoOrange from './../../../assets/osso-orange.png';
+    import patas from './../../../assets/patas.png';
 
 const post = [
     { avatar: avatar, img: 'https://images.unsplash.com/photo-1590986482090-b4b48b90fd07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60' },
@@ -44,23 +36,39 @@ const post = [
 ];
 
 
-
-export default function Home() {
+const DetailsProfile = () => {
+    const [updated, setUpdated] = useState(false);
     const navigation = useNavigation();
+
+
+
+    function handleUpdate() {
+        setUpdated(true);
+
+        setTimeout(() => {
+            setUpdated(false)
+        }, 2000)
+    }
+
     return (
         <Container>
             <Header>
-                <TouchableOpacity onPress={() => navigation.navigate('DetailsProfile')}>
-                    <Avatar source={avatar} />
-                </TouchableOpacity>
-                <Logo source={logo} />
-                <Search>
-                    <Feather name="search" size={24} color="#c4c4c4" />
-                </Search>
+                <Back onPress={() => navigation.goBack()}>
+                    <Feather name="arrow-left" size={30} color="#3B3B3B" />
+                </Back>
+                <HeaderText>My Profile</HeaderText>
+                <View />
             </Header>
 
+            <BoxImage>
+                <ProfileImage source={{ uri: 'https://images.unsplash.com/photo-1609103566358-ccab56549f8d?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1OHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60' }} />
+                <User>
+                    <Username>Tommy Jackson</Username>
+                    <Useremail>tommyjackson@gmail.com</Useremail>
+                </User>
+            </BoxImage>
             <Scroll>
-                {post.map((item, i) => (
+            {post.map((item, i) => (
                     <Card key={i}>
                         <CardHeader>
                             <CardAvatar>
@@ -78,6 +86,16 @@ export default function Home() {
                                 <TouchableOpacity onPress={() => { }}>
                                     <CardSharedButton>
                                         <Image source={sharedIcon} />
+                                    </CardSharedButton>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => navigation.navigate('EditPost')}>
+                                    <CardSharedButton>
+                                        <Image source={editIcon} />
+                                    </CardSharedButton>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={() => { }}>
+                                    <CardSharedButton>
+                                        <Image source={trashIcon} />
                                     </CardSharedButton>
                                 </TouchableOpacity>
                             </Icone>
@@ -108,6 +126,8 @@ export default function Home() {
                     </Card>
                 ))}
             </Scroll>
-        </Container >
+        </Container>
     );
 }
+
+export default DetailsProfile;

@@ -9,15 +9,16 @@ export default function PlusButton({ onPress, focused }) {
             <Button
                 colors={
                     focused ?
-                        ['#fff', '#ccc']
-                        : ['#F92B7F', '#F58524']
+                        ['#F92B7F', '#F58524']
+                        :
+                        ['#d6d9d9', '#e9e9e9']
                 }
-                start={[0.8, 1]}
+                start={[0.2, 0.3]}
             >
                 <AntDesign
                     name="plus"
                     size={35}
-                    color="#fff"
+                    color="#f7f7f8"
                 />
             </Button>
         </TouchableWithoutFeedback>
